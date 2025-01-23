@@ -1,5 +1,5 @@
 # VectraSelect
-A lightweight library for interactive text selection, specifically designed for AI chatbot interaciton.
+A lightweight library for interactive text selection, specifically designed for AI chatbot interaction.
 
 ## Features
 - Sentence-level and word-level selection
