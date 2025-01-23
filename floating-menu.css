@@ -1,0 +1,39 @@
+/* Styles for the floating menu */
+#floating-menu {
+  position: absolute;
+  display: none;  /* Initial state is hidden */
+  background: var(--floating-menu-bg-color, #2d2d2d);  /* Changed to use background shorthand */
+  background-color: var(--floating-menu-bg-color, #2d2d2d) !important;
+  border: var(--floating-menu-border, 1px solid #404040);
+  border-radius: var(--floating-menu-border-radius, 20px);
+  padding: var(--floating-menu-padding, 8px 12px);
+  box-shadow: var(--floating-menu-box-shadow, 0 2px 8px rgba(0, 0, 0, 0.3));
+  z-index: 1000;
+}
+
+/* Position the floating menu at the bottom center of the text area */
+#floating-menu.show {
+  display: flex;  /* Show with flex when .show class is applied */
+  justify-content: center; /* Center the buttons horizontally */
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 10px); /* 10px offset for spacing */
+  background: var(--floating-menu-bg-color, #2d2d2d);  /* Added to ensure consistency */
+  background-color: var(--floating-menu-bg-color, #2d2d2d) !important;
+}
+
+/* Styles for the buttons inside the floating menu */
+#floating-menu button {
+  margin: var(--floating-menu-button-margin, 0 5px); /* Horizontal margin between buttons */
+  padding: var(--floating-menu-button-padding, 6px 12px);
+  background-color: var(--floating-menu-button-bg-color, #404040);
+  color: var(--floating-menu-button-color, #e0e0e0);
+  border: none;
+  border-radius: var(--floating-menu-button-border-radius, 15px);
+  cursor: pointer;
+}
+
+/* Hover effect for the buttons */
+#floating-menu button:hover {
+  background-color: var(--floating-menu-button-hover-bg-color, #505050);
+}
