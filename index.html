@@ -80,6 +80,22 @@
       </div>
       <pre id="json-output"></pre>
     </div>
+
+    <!-- Themed modal (replaces browser alert/prompt/confirm) -->
+    <div id="vs-modal-overlay" class="vs-modal-overlay" hidden>
+      <div id="vs-modal" class="vs-modal" role="dialog" aria-modal="true" aria-labelledby="vs-modal-title">
+        <div class="vs-modal-header">
+          <h3 id="vs-modal-title" class="vs-modal-title">Dialog</h3>
+          <button type="button" class="vs-icon-button" data-vs-modal-close aria-label="Close dialog">×</button>
+        </div>
+        <p id="vs-modal-subtitle" class="vs-modal-subtitle"></p>
+        <pre id="vs-modal-content" class="vs-modal-content" tabindex="0"></pre>
+        <div class="vs-modal-actions">
+          <button type="button" class="vs-button vs-button-secondary" data-vs-modal-copy>Copy</button>
+          <button type="button" class="vs-button" data-vs-modal-close>Close</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Update script loading order -->
