@@ -3,46 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Selection</title>
+  <title>VectraSelect - Interactive Text Selection</title>
   <!-- Link to the main stylesheet -->
   <link rel="stylesheet" href="text-selection.css">
   <!-- Link to the floating menu stylesheet -->
   <link rel="stylesheet" href="floating-menu.css">
 </head>
 <body>
-  <!-- Directions for users -->
-  <div id="directions">
-    <h3>Context Builder ...</h3>
-    <h4>A lightweight library for interactive text selection, specifically designed for AI chatbot interaction.
-    </h4>
-    <p>Select and Deselect sentences and words by clicking on them.</p>
-    <ul>
-      <li>A single-click selects a sentence.</li>
-      <li>A single-click in a selected sentence will select individual words.</li>
-      <li>A double-click on a sentence will clear all selections in that sentence and the sentence itself.</li>
-      <li>The selected words and sentences will be displayed below.</li>
-      <li>The 'Add context' button will send the payload (JSON, comma separated, etc) to the LLM/Chatbot.</li>
-      <li>Wrap payload with a prompt for best results.
-      </li>
-    </ul>
+  <div class="container">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-icon">✨</div>
+      <h1>VectraSelect</h1>
+      <p class="tagline">Interactive Text Selection for AI-Powered Workflows</p>
+    </header>
+
+    <!-- Directions Card -->
+    <div class="card instructions-card">
+      <h2>🎯 How It Works</h2>
+      <p class="lead">Select and deselect sentences and words by clicking on them.</p>
+      <div class="instructions-grid">
+        <div class="instruction-item">
+          <span class="instruction-icon">👆</span>
+          <div class="instruction-content">
+            <strong>Single Click</strong>
+            <p>Select a sentence</p>
+          </div>
+        </div>
+        <div class="instruction-item">
+          <span class="instruction-icon">🔤</span>
+          <div class="instruction-content">
+            <strong>Click in Selection</strong>
+            <p>Select individual words</p>
+          </div>
+        </div>
+        <div class="instruction-item">
+          <span class="instruction-icon">✌️</span>
+          <div class="instruction-content">
+            <strong>Double Click</strong>
+            <p>Clear sentence selections</p>
+          </div>
+        </div>
+        <div class="instruction-item">
+          <span class="instruction-icon">🤖</span>
+          <div class="instruction-content">
+            <strong>Add Context</strong>
+            <p>Send to LLM/Chatbot</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Selection Area -->
+    <div class="card text-selection-card">
+      <div class="card-header">
+        <h2>📝 Interactive Demo</h2>
+        <p class="card-subtitle">Click on sentences and words below to build your context</p>
+      </div>
+      <div id="text-area">
+        <p>Have you ever paused to contemplate the unrelenting tyranny of modern computing? No, I'm not talking about slow Wi-Fi or forced software updates. I'm talking about something far more insidious, something we've been conditioned to accept without protest: the burden of right-clicking to access contextual menus. Yes, dear reader, I mean the Herculean task of moving your finger a fraction of an inch, applying minimal pressure to a mouse button, and then—brace yourself—deciphering a list of options.
+        </p>
+        <p>The Physical Toll: Let's start with the biomechanical nightmare. Right-clicking demands precision. It's not just clicking anywhere; it's clicking right. What if your finger twitches? What if the mouse doesn't register? What if you miss and left-click instead? The cognitive load is unbearable. Olympic athletes train for years to master their craft—do we really expect the average person to perform such intricate finger gymnastics multiple times a day?
+        </p>
+        <p>The Psychological Burden: The contextual menu, with its cascade of choices, represents the Pandora's box of digital existence. Copy, paste, open in new tab, inspect element—inspect element? What does that even mean? And why does "delete" always sit perilously close to "rename"? It's a minefield of potential disaster, one that leaves the user in a state of constant, low-grade anxiety.
+        </p>
+        <p>The Time Sink: In the split second it takes for the contextual menu to appear, valuable milliseconds of our lives are lost. Multiply that by the number of right-clicks in a day, a week, a lifetime. How many sunsets missed? How many fleeting moments of joy sacrificed? Right-clicking is not just a waste of time; it's a thief of human potential.
+        </p>
+      </div>
+    </div>
+
+    <!-- JSON Output Card -->
+    <div class="card output-card">
+      <div class="card-header">
+        <h2>📊 Selected Context</h2>
+        <p class="card-subtitle">Your selections are formatted and ready to use</p>
+      </div>
+      <pre id="json-output"></pre>
+    </div>
   </div>
-  <!-- Container for the text area -->
-  <div id="text-area">
-    <h4>This is the text-area for interactive text selection.</h4>
-    <p>Have you ever paused to contemplate the unrelenting tyranny of modern computing? No, I’m not talking about slow Wi-Fi or forced software updates. I’m talking about something far more insidious, something we’ve been conditioned to accept without protest: the burden of right-clicking to access contextual menus. Yes, dear reader, I mean the Herculean task of moving your finger a fraction of an inch, applying minimal pressure to a mouse button, and then—brace yourself—deciphering a list of options.
-    </p>
-    <p>The Physical Toll: Let’s start with the biomechanical nightmare. Right-clicking demands precision. It’s not just clicking anywhere; it’s clicking right. What if your finger twitches? What if the mouse doesn’t register? What if you miss and left-click instead? The cognitive load is unbearable. Olympic athletes train for years to master their craft—do we really expect the average person to perform such intricate finger gymnastics multiple times a day?
-    </p>
-    <p>The Psychological Burden: The contextual menu, with its cascade of choices, represents the Pandora’s box of digital existence. Copy, paste, open in new tab, inspect element—inspect element? What does that even mean? And why does “delete” always sit perilously close to “rename”? It’s a minefield of potential disaster, one that leaves the user in a state of constant, low-grade anxiety.
-    </p>
-    <p>
-    The Time Sink: In the split second it takes for the contextual menu to appear, valuable milliseconds of our lives are lost. Multiply that by the number of right-clicks in a day, a week, a lifetime. How many sunsets missed? How many fleeting moments of joy sacrificed? Right-clicking is not just a waste of time; it’s a thief of human potential.
-    </p>
-  </div>
-  <!-- Container for the JSON output -->
-  <pre id="json-output"></pre>
-  <!-- Button to manually trigger the floating menu for testing -->
-  <!-- <button id="test-menu-button">Show Floating Menu</button> -->
+
   <!-- Update script loading order -->
   <script src="floating-menu.js"></script>
   <script src="text-selection.js"></script>
