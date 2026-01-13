@@ -7,7 +7,7 @@ A lightweight library for implementing interactive text selection with floating 
 - Floating action menu
 - JSON output of selected content
 - Touch device support
-- Customizable prompts
+- Customizable payloads
 
 ## Installation
 
@@ -198,3 +198,4 @@ window.textSelectionState = {
 1. Text must be properly formatted with sentences ending in proper punctuation
 2. Nested selections are not supported
 3. Rich text formatting may affect selection behavior
+
