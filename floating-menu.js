@@ -52,7 +52,6 @@ class FloatingMenu {
 
     // Append the menu to the document body
     document.body.appendChild(menu);
-    console.log("Floating menu created");
 
     return menu;
   }
@@ -66,14 +65,12 @@ class FloatingMenu {
     this.menu.style.top = `${textAreaRect.bottom + window.scrollY + 10}px`; // 10px offset for spacing
     this.menu.classList.add("show");
     this.menu.style.display = "block";
-    console.log(`Floating menu shown at (${this.menu.style.left}, ${this.menu.style.top})`);
   }
 
   hide() {
     if (!this.menu) return;
     this.menu.classList.remove("show");
     this.menu.style.display = "none";
-    console.log("Floating menu hidden");
   }
 }
 

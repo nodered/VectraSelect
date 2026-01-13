@@ -1,39 +1,125 @@
-/* Styles for the floating menu */
+/* Floating Menu - Modern Design */
 #floating-menu {
   position: absolute;
-  display: none;  /* Initial state is hidden */
-  background: var(--floating-menu-bg-color, #2d2d2d);  /* Changed to use background shorthand */
-  background-color: var(--floating-menu-bg-color, #2d2d2d) !important;
-  border: var(--floating-menu-border, 1px solid #404040);
-  border-radius: var(--floating-menu-border-radius, 20px);
-  padding: var(--floating-menu-padding, 8px 12px);
-  box-shadow: var(--floating-menu-box-shadow, 0 2px 8px rgba(0, 0, 0, 0.3));
+  display: none;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  border-radius: 24px;
+  padding: 10px 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(108, 99, 255, 0.1);
   z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+  transform: translateY(10px);
 }
 
-/* Position the floating menu at the bottom center of the text area */
 #floating-menu.show {
-  display: flex;  /* Show with flex when .show class is applied */
-  justify-content: center; /* Center the buttons horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   left: 50%;
-  transform: translateX(-50%);
-  top: calc(100% + 10px); /* 10px offset for spacing */
-  background: var(--floating-menu-bg-color, #2d2d2d);  /* Added to ensure consistency */
-  background-color: var(--floating-menu-bg-color, #2d2d2d) !important;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  animation: slideUp 0.3s ease-out;
 }
 
-/* Styles for the buttons inside the floating menu */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Button Styles */
 #floating-menu button {
-  margin: var(--floating-menu-button-margin, 0 5px); /* Horizontal margin between buttons */
-  padding: var(--floating-menu-button-padding, 6px 12px);
-  background-color: var(--floating-menu-button-bg-color, #404040);
-  color: var(--floating-menu-button-color, #e0e0e0);
+  margin: 0;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #6c63ff 0%, #5a52d5 100%);
+  color: #ffffff;
   border: none;
-  border-radius: var(--floating-menu-button-border-radius, 15px);
+  border-radius: 18px;
   cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.3);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Hover effect for the buttons */
+#floating-menu button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
 #floating-menu button:hover {
-  background-color: var(--floating-menu-button-hover-bg-color, #505050);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.5);
+}
+
+#floating-menu button:hover::before {
+  opacity: 1;
+}
+
+#floating-menu button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(108, 99, 255, 0.4);
+}
+
+/* Special styling for Clear All button */
+#floating-menu button:last-child {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+#floating-menu button:last-child:hover {
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+}
+
+/* Special styling for placeholder buttons */
+#floating-menu button:nth-child(2),
+#floating-menu button:nth-child(3) {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  min-width: 45px;
+  padding: 10px 14px;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+#floating-menu button:nth-child(2):hover,
+#floating-menu button:nth-child(3):hover {
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #floating-menu {
+    padding: 8px 12px;
+    border-radius: 20px;
+  }
+
+  #floating-menu button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  #floating-menu button:nth-child(2),
+  #floating-menu button:nth-child(3) {
+    min-width: 40px;
+    padding: 8px 12px;
+  }
 }
