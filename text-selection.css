@@ -108,6 +108,10 @@ body {
   box-shadow: var(--shadow-xl);
 }
 
+.text-selection-card:hover {
+  transform: none;
+}
+
 .card-header {
   margin-bottom: 1.5rem;
 }
